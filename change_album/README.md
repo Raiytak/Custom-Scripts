@@ -17,5 +17,5 @@ cd change_album
 pip install
 ```
 
-You can now launch the script by typing ```python -m change_album```
+You can now launch the script by typing ```python -m change_album``` \
 Add ```--help``` to see the possible options!
