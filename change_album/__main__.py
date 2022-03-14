@@ -92,14 +92,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--all",
-        help="If set, modifies recursively all the album's name of all the '.mp3' files to match their directory's name",
-        # default=True,
-        nargs="*",
+        help="If set, modifies recursively all the '.mp3' files for the given path, set every file's album's name to their directory's name",
+        nargs="?",
     )
     parser.add_argument(
         "--endpoints-only",
         help="Modifies the folders contaigning only '.mp3' files",
-        nargs="*",
+        nargs="?",
     )
     args = parser.parse_args()
 
