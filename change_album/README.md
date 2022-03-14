@@ -1,4 +1,4 @@
-# Change Album
+# Change Album Name
 [![Raiytak - change-album](https://img.shields.io/static/v1?label=Raiytak&message=change-album&color=blueviolet&logo=github)](https://github.com/Raiytak/Custom-Scripts/tree/master/change_album "Go to GitHub repo")
 [![GitHub tag](https://img.shields.io/github/tag/Raiytak/birthday-calendar?include_prereleases=&sort=semver&color=brightgreen)](https://github.com/Raiytak/change-album/releases/)
 [![License](https://img.shields.io/badge/License-MIT-brightgreen)](#license)
