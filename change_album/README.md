@@ -14,7 +14,8 @@ python => 3.8 necessary (see https://www.python.org/downloads/)
 git clone https://github.com/Raiytak/Custom-Scripts.git
 cd Custom-Scripts
 cd change_album
-pip install -r requirements.txt
+pip install
 ```
 
 You can now launch the script by typing ```python -m change_album```
+Add ```--help``` to see the possible options!
