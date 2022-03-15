@@ -28,15 +28,12 @@ To modify all your mp3 files at once in an elegant and simple way, type this com
 
 ## Basic Use
 `python -m change_album` \
+
 https://user-images.githubusercontent.com/52044172/158438720-35b86097-b2bd-4450-aa89-8b0bf00a96fe.mp4
+
 
 
 ## Recurse use providing album name
 `python -m change_album --recursively --album-name "My Album Name"` \
+
 https://user-images.githubusercontent.com/52044172/158438845-56d5ef61-7c12-4ec9-824f-dab3b9455abb.mp4
-
-
-
-
-
-
