@@ -52,12 +52,12 @@ def changeAlbumTagOfFile(path_file: Path, album_name: Union[str, None]):
     return []
 
 
-def askPathDirectory(endpoint_only: bool, recursively: bool) -> Path:
+def askPathDirectory(endpoint_only: bool, recursive: bool) -> Path:
     is_good_dir = False
     while not is_good_dir:
         path_dir = Path(str(input("Directory path (none=realtive) = ")))
         if path_dir.is_dir():
-            if not recursively:
+            if not recursive:
                 if endpoint_only:
                     is_good_dir = checkIsEndpoint(path_dir)
                     if not is_good_dir:
@@ -105,7 +105,7 @@ if __name__ == "__main__":
         type=str,
     )
     parser.add_argument(
-        "--recursively",
+        "--recursive",
         help="If set, modifies recursively all the '.mp3' files for the given path",
         action="store_true",
     )
@@ -118,7 +118,7 @@ if __name__ == "__main__":
 
     endpoint_only = args.endpoint_only
     if not args.path:
-        user_path = askPathDirectory(endpoint_only, args.recursively)
+        user_path = askPathDirectory(endpoint_only, args.recursive)
     else:
         user_path = Path(args.path)
 
@@ -126,10 +126,10 @@ if __name__ == "__main__":
     if args.album_name:
         album_name = args.album_name
     else:
-        if not args.recursively:
+        if not args.recursive:
             album_name = askAlbumName()
 
-    if not args.recursively:
+    if not args.recursive:
         if endpoint_only:
             is_ok = checkIsEndpoint(user_path)
             if not is_ok:
