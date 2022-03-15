@@ -18,5 +18,6 @@ setup(
     author="Mathieu Salaun",
     author_email="mathieu.salaun12@gmail.com",
     install_requires="eyed3",
+    packages=["change_album"],
     license="MIT",
 )
