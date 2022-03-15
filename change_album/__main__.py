@@ -105,6 +105,7 @@ if __name__ == "__main__":
         type=str,
     )
     parser.add_argument(
+        "-r",
         "--recursive",
         help="If set, modifies recursively all the '.mp3' files for the given path",
         action="store_true",
