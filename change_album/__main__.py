@@ -17,7 +17,7 @@ def changeAllFilesOfDirectoryRecursively(
     list_files = directory_path.iterdir()
     for curr_file in list_files:
         modifications_allowed = (
-            checkIsEndpoint(directory_path, extension) if endpoint_only else True
+            checkIsEndpoint(directory_path) if endpoint_only else True
         )
         if curr_file.is_file() and curr_file.suffix == extension:
             unmodified = []
@@ -52,20 +52,18 @@ def changeAlbumTagOfFile(path_file: Path, album_name: Union[str, None]):
     return []
 
 
-def askPathDirectory(endpoint_only: bool, recursively: bool, extension: str) -> Path:
+def askPathDirectory(endpoint_only: bool, recursively: bool) -> Path:
     is_good_dir = False
     while not is_good_dir:
         path_dir = Path(str(input("Directory path (none=realtive) = ")))
         if path_dir.is_dir():
             if not recursively:
                 if endpoint_only:
-                    is_good_dir = checkIsEndpoint(path_dir, extension)
+                    is_good_dir = checkIsEndpoint(path_dir)
                     if not is_good_dir:
-                        print(
-                            "The path provided does not contains only {} files".format(
-                                extension
-                            )
-                        )
+                        print("The path provided does not contains only files")
+                else:
+                    is_good_dir = True
             else:
                 is_good_dir = True
         else:
@@ -73,10 +71,10 @@ def askPathDirectory(endpoint_only: bool, recursively: bool, extension: str) -> 
     return path_dir
 
 
-def checkIsEndpoint(folder_path: Path, extension: str):
+def checkIsEndpoint(folder_path: Path):
     """Returns True if all files within the directory are of the expected extension"""
     list_files = folder_path.iterdir()
-    if all([file.suffix == extension for file in list_files]):
+    if all([file.is_file() for file in list_files]):
         return True
     return False
 
@@ -120,7 +118,7 @@ if __name__ == "__main__":
 
     endpoint_only = args.endpoint_only
     if not args.path:
-        user_path = askPathDirectory(endpoint_only, args.recursively, MP3_EXTENSION)
+        user_path = askPathDirectory(endpoint_only, args.recursively)
     else:
         user_path = Path(args.path)
 
@@ -133,7 +131,7 @@ if __name__ == "__main__":
 
     if not args.recursively:
         if endpoint_only:
-            is_ok = checkIsEndpoint(user_path, MP3_EXTENSION)
+            is_ok = checkIsEndpoint(user_path)
             if not is_ok:
                 raise AttributeError(
                     "The given directory does not contains only {} files".format(
