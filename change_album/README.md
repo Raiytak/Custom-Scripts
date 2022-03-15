@@ -24,7 +24,7 @@ Add ```--help``` to see the possible options!
 
 ## Most useful
 To modify all your mp3 files at once in an elegant and simple way, type this command: \
-`python -m change_album --recursively --endpoint-only`
+`python -m change_album --recursive --endpoint-only`
 
 ## Basic Use
 `python -m change_album`
@@ -34,6 +34,6 @@ https://user-images.githubusercontent.com/52044172/158438720-35b86097-b2bd-4450-
 
 
 ## Recurse use providing album name
-`python -m change_album --recursively --album-name "My Album Name"`
+`python -m change_album --recursive --album-name "My Album Name"`
 
 https://user-images.githubusercontent.com/52044172/158438845-56d5ef61-7c12-4ec9-824f-dab3b9455abb.mp4
